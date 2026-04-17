@@ -1,28 +1,43 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   RIGITRACE DESIGN SYSTEM
-   Aesthetic: Forensic Monochrome
+   RIGITRACE DESIGN SYSTEM — CLINICAL TRUST
+   Electric teal + navy. Lab-grade precision meets fintech clarity.
    ========================================================================== */
 
 @theme {
-  /* -------- COLOR TOKENS -------- */
-  --color-obsidian: #0A0A0A;
-  --color-graphite: #1A1A1A;
-  --color-ink: #2A2A2A;
-  --color-steel: #8A8A8A;
-  --color-mist: #C4C4BE;
-  --color-hairline: #E5E5E0;
-  --color-bone: #FAFAF7;
-  --color-paper: #FFFFFF;
+  /* -------- NAVY SCALE -------- */
+  --color-navy-deep: #0A1628;
+  --color-navy: #14233D;
+  --color-navy-soft: #1E3A5F;
+  --color-navy-mist: #3B5378;
 
-  /* Verdict accents — used sparingly */
-  --color-verified: #1B5E3F;
-  --color-verified-soft: #E8F0EA;
-  --color-alert: #B91C1C;
-  --color-alert-soft: #FBEAEA;
-  --color-signal: #D4AF37;
-  --color-signal-soft: #F7F0D8;
+  /* -------- TEAL SCALE (brand accent) -------- */
+  --color-teal-electric: #00D4D4;
+  --color-teal: #00A8A8;
+  --color-teal-deep: #006B6B;
+  --color-teal-soft: #E0F7F7;
+
+  /* -------- NEUTRALS -------- */
+  --color-ice: #F8FAFC;
+  --color-paper: #FFFFFF;
+  --color-mist: #E2E8F0;
+  --color-hairline: #CBD5E1;
+  --color-slate: #64748B;
+  --color-graphite: #334155;
+
+  /* -------- VERDICT SIGNALS -------- */
+  --color-verified: #059669;
+  --color-verified-soft: #D1FAE5;
+  --color-alert: #DC2626;
+  --color-alert-soft: #FEE2E2;
+  --color-signal: #F59E0B;
+  --color-signal-soft: #FEF3C7;
+
+  /* -------- CATEGORY ACCENTS -------- */
+  --color-cat-cosmetics: #00A8A8;
+  --color-cat-food: #F59E0B;
+  --color-cat-electronics: #1E3A5F;
 
   /* -------- TYPOGRAPHY -------- */
   --font-display: var(--font-syne), "Syne", system-ui, sans-serif;
@@ -41,16 +56,16 @@
 }
 
 /* ==========================================================================
-   BASE STYLES
+   BASE
    ========================================================================== */
 
 * {
-  border-color: var(--color-hairline);
+  border-color: var(--color-mist);
 }
 
 html {
-  background: var(--color-bone);
-  color: var(--color-obsidian);
+  background: var(--color-ice);
+  color: var(--color-navy-deep);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -65,69 +80,75 @@ body {
   min-height: 100vh;
 }
 
-/* Display headings use Syne by default */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.05;
+  color: var(--color-navy-deep);
 }
 
-/* Selection */
 ::selection {
-  background: var(--color-obsidian);
-  color: var(--color-bone);
+  background: var(--color-teal-electric);
+  color: var(--color-navy-deep);
 }
 
 /* ==========================================================================
    TYPOGRAPHY UTILITIES
    ========================================================================== */
 
-.font-display {
-  font-family: var(--font-display);
-}
-
-.font-body {
-  font-family: var(--font-body);
-}
-
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
 .font-mono {
   font-family: var(--font-mono);
   font-feature-settings: "zero", "ss02";
 }
 
-/* Editorial eyebrow label — letter-spaced caps */
 .eyebrow {
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-steel);
+  color: var(--color-slate);
 }
 
-/* Monospace data label — for NAFDAC numbers, serial codes */
+.eyebrow-teal {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-teal-deep);
+}
+
 .data-label {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--color-steel);
+  color: var(--color-slate);
+}
+
+/* Accent text — the signature italic in teal */
+.accent-teal {
+  color: var(--color-teal-deep);
+  font-style: italic;
+  font-weight: 500;
 }
 
 /* ==========================================================================
-   HAIRLINE BORDERS + DIVIDERS
+   HAIRLINES + DIVIDERS
    ========================================================================== */
 
-.hairline {
-  border: 1px solid var(--color-hairline);
-}
+.hairline { border: 1px solid var(--color-mist); }
+.hairline-top { border-top: 1px solid var(--color-mist); }
+.hairline-bottom { border-bottom: 1px solid var(--color-mist); }
+.hairline-left { border-left: 1px solid var(--color-mist); }
+.hairline-right { border-right: 1px solid var(--color-mist); }
 
-.hairline-top { border-top: 1px solid var(--color-hairline); }
-.hairline-bottom { border-bottom: 1px solid var(--color-hairline); }
-.hairline-left { border-left: 1px solid var(--color-hairline); }
-.hairline-right { border-right: 1px solid var(--color-hairline); }
+.hairline-teal { border: 1px solid var(--color-teal-electric); }
 
 .divider-chevron {
   position: relative;
@@ -141,48 +162,83 @@ h1, h2, h3, h4, h5, h6 {
   top: 50%;
   width: calc(50% - 24px);
   height: 1px;
-  background: var(--color-obsidian);
+  background: var(--color-teal-electric);
 }
 
 .divider-chevron::before { left: 0; }
 .divider-chevron::after { right: 0; }
 
 /* ==========================================================================
-   GRAIN TEXTURE — archival paper feel
+   GRAIN — subtle
    ========================================================================== */
 
-.grain {
-  position: relative;
-}
+.grain { position: relative; }
 
 .grain::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.025;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ==========================================================================
-   STAGGERED REVEAL ANIMATION — page load
+   TEAL GLOW — for hero background atmospherics
+   ========================================================================== */
+
+.teal-glow {
+  position: relative;
+}
+
+.teal-glow::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(circle, var(--color-teal-electric) 0%, transparent 60%);
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================================================
+   GRID OVERLAY — blueprint/lab feel
+   ========================================================================== */
+
+.grid-overlay {
+  background-image:
+    linear-gradient(to right, rgba(0, 212, 212, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 212, 212, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ==========================================================================
+   ANIMATIONS
    ========================================================================== */
 
 @keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes reveal-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes stamp {
+  0% { opacity: 0; transform: scale(1.1) rotate(-2deg); }
+  60% { opacity: 1; transform: scale(0.98) rotate(0.5deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes pulse-teal {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 212, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(0, 212, 212, 0); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
 
 .reveal {
@@ -197,56 +253,30 @@ h1, h2, h3, h4, h5, h6 {
 .reveal-5 { animation-delay: 0.5s; }
 .reveal-6 { animation-delay: 0.6s; }
 
-/* ==========================================================================
-   STAMP ANIMATION — for verification result cards
-   ========================================================================== */
-
-@keyframes stamp {
-  0% {
-    opacity: 0;
-    transform: scale(1.1) rotate(-2deg);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(0.98) rotate(0.5deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-  }
-}
-
-.stamp {
-  animation: stamp 0.5s var(--ease-forensic) forwards;
-}
+.stamp { animation: stamp 0.5s var(--ease-forensic) forwards; }
+.pulse-teal { animation: pulse-teal 2s infinite; }
 
 /* ==========================================================================
-   FOCUS STATES — accessible + on-brand
+   FOCUS
    ========================================================================== */
 
 *:focus-visible {
-  outline: 2px solid var(--color-obsidian);
+  outline: 2px solid var(--color-teal-electric);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
 /* ==========================================================================
-   SCROLLBAR — subtle, monochrome
+   SCROLLBAR
    ========================================================================== */
 
 @media (min-width: 768px) {
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--color-bone);
-  }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-ice); }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-mist);
-    border: 2px solid var(--color-bone);
+    background: var(--color-hairline);
+    border: 2px solid var(--color-ice);
     border-radius: 6px;
   }
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-steel);
-  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-teal); }
 }
