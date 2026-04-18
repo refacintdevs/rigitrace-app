@@ -63,13 +63,18 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  themeColor: "#F8FAFC",
+  colorScheme: "light",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" style={{ colorScheme: "light" }}>
       <body
         className={`${syne.variable} ${instrumentSans.variable} ${jetbrainsMono.variable} font-body antialiased`}
       >

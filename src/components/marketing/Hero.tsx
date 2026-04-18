@@ -6,27 +6,32 @@ import { PhoneMockup } from "@/components/ui/PhoneMockup";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center pt-24 pb-16 overflow-hidden teal-glow">
+    <section className="relative min-h-screen flex flex-col justify-center pt-32 md:pt-28 pb-16 overflow-hidden teal-glow">
       <div className="absolute inset-0 grid-overlay pointer-events-none" />
-
-      <div className="absolute top-20 left-0 right-0 border-b border-mist bg-ice/80 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-          <span className="eyebrow">File · RGT-2026-001</span>
-          <span className="eyebrow hidden sm:inline">Lagos · Nigeria</span>
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-verified rounded-full animate-pulse" />
-            <span className="eyebrow-teal">System Live</span>
-          </div>
-        </div>
-      </div>
 
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
             <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 pb-4 border-b border-mist"
+            >
+              <span className="eyebrow">File · RGT-2026-001</span>
+              <span className="hidden sm:inline text-hairline">·</span>
+              <span className="eyebrow hidden sm:inline">Lagos · Nigeria</span>
+              <span className="hidden md:inline text-hairline">·</span>
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 bg-verified rounded-full animate-pulse" />
+                <span className="eyebrow-teal">System Live</span>
+              </div>
+            </motion.div>
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="flex items-center gap-3 mb-8"
             >
               <span className="w-12 h-px bg-teal-electric" />
@@ -36,7 +41,7 @@ export function Hero() {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="font-display text-[clamp(2.5rem,7vw,6rem)] font-extrabold leading-[0.95] tracking-tight text-navy-deep"
             >
               Your brand is being
